@@ -14,7 +14,7 @@ Answer
 
 To solve this question, you download the lab file first, and then open the file with Wireshark.
 In Wireshark, first, you look at the HTTP protocol for any suspicious behavior. You can easily spot that
-the IP 111.224.250.131 is doing an SQL attack on our server.
+the IP 111.224.250.131 is doing an SQL injection attack on our server.
 
 
 Q2  
@@ -34,6 +34,30 @@ This knowledge is critical for finding the appropriate patch or workaround to cl
 Can you provide the vulnerable PHP script name?
 
 Answer
+
+The attacker is taking advantage of a vulnerable PHP script to launch his SQL injection attack. We analyze the file in Wireshark,
+and we can spot that the attacker is using the search.php script to launch his attack.
+
+Q4
+
+Establishing the timeline of an attack, starting from the initial exploitation attempt, 
+what is the complete request URI of the first SQLi attempt by the attack
+
+Answer
+
+To solve this question, you simply go to Wireshark and find the first successful HTTP request that the attacker made using the vulnerable PHP script.
+The URI is "/search.php?search=book and 1=1; -- -". As we can see, the attacker is using search.php to launch a SQL injection attack, and the server,
+returns "200 OK " which means that the request was valid.
+
+Q5
+
+Can you provide the complete request URI that was used to read the web server's available databases?
+
+Answer
+
+
+
+
 
 
 
